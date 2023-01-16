@@ -2,7 +2,7 @@ export default function Form({ change, user, submit }) {
   return (
     <form onSubmit={(e) => submit(e)}>
       <div className="icon-input">
-        <i className="fa fa-search"></i>
+        <i className="fa fa-search fa-lg"></i>
         <input
           placeholder="Search GitHub Username..."
           type="text"
@@ -11,7 +11,7 @@ export default function Form({ change, user, submit }) {
           value={user}
         />
       </div>
-      <button>Submit</button>
+      <button>Search</button>
     </form>
   );
 }

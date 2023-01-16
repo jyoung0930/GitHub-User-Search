@@ -1,9 +1,20 @@
 import { useState, useEffect } from "react";
+import UserInfo from "./UserInfo";
 import Form from "./Form";
 
 export default function App() {
   const [user, setUser] = useState("");
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({
+    avatar_url: "https://avatars.githubusercontent.com/u/18667658?v=4",
+    followers: 1,
+    following: 0,
+    html_url: "https://github.com/octacat",
+    login: "octacat",
+    bio: null,
+    created_at: "2016-04-25T20:47:18Z",
+    public_repos: 0,
+    url: "https://api.github.com/users/octacat",
+  });
   const [error, seterror] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -43,6 +54,17 @@ export default function App() {
         change={handleChange}
         submit={handleSubmit}
         error={error}
+      />
+      <UserInfo
+        login={data.login}
+        bio={data.bio}
+        created={data.created_at}
+        url={data.url}
+        repos={data.public_repos}
+        followers={data.followers}
+        following={data.following}
+        location={data.location}
+        imgUrl={data.avatar_url}
       />
     </div>
   );
