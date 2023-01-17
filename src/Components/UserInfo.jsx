@@ -1,3 +1,8 @@
+import locationIcon from "../assets/icon-location.svg";
+import companyIcon from "../assets/icon-company.svg";
+import websiteLink from "../assets/icon-website.svg";
+import twitterIcon from "../assets/icon-twitter.svg";
+
 export default function UserInfo({
   login,
   bio,
@@ -8,6 +13,8 @@ export default function UserInfo({
   following,
   location,
   imgUrl,
+  company,
+  twitter,
 }) {
   const year = created.toString().slice(0, 4);
   const month = created.toString().slice(5, 7);
@@ -37,6 +44,24 @@ export default function UserInfo({
         <div className="stat">
           <h4>Following</h4>
           <span>{following}</span>
+        </div>
+      </div>
+      <div className="link-grid">
+        <div className="item">
+          <img src={locationIcon} />
+          <h4>{location === null ? "Not Available" : location}</h4>
+        </div>
+        <div className="item">
+          <img src={companyIcon} />
+          <h4>{company === null ? "Not Available" : company}</h4>
+        </div>
+        <div className="item">
+          <img src={websiteLink} />
+          <a href={url}>{url}</a>
+        </div>
+        <div className="item">
+          <img src={twitterIcon} />
+          <h4>{twitter === null ? "Not Available" : twitter}</h4>
         </div>
       </div>
     </div>
