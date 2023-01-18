@@ -27,7 +27,7 @@ In this project, the goal was to build out a Github search app, the challenge wa
 
 ### Links
 
-- Live Site URL: [Github User Search]()
+- Live Site URL: [Github User Search](https://grand-maamoul-d485c7.netlify.app/)
 
 ### Features
 
