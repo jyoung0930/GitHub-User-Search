@@ -15,6 +15,7 @@ export default function UserInfo({
   imgUrl,
   company,
   twitter,
+  isDark,
 }) {
   const year = created.toString().slice(0, 4);
   const month = created.toString().slice(5, 7);
@@ -22,31 +23,56 @@ export default function UserInfo({
 
   const date = new Date(year, month, day).toDateString();
 
+  const lightModeStyleHeader = {
+    color: isDark ? "#FFFFFF" : "#2B3442",
+  };
+
+  const lightModeStyleUserBody = {
+    backgroundColor: isDark ? "#1E2A47" : "#FEFEFE",
+  };
+
   return (
-    <div className="user-info">
+    <div style={lightModeStyleUserBody} className="user-info">
       <div className="heading">
         <img src={imgUrl} alt="user image" />
         <div className="user-name-bio">
-          <h1 className="user-name">{login}</h1>
-          <h4 className="joined-date">{`Joined ${date}`}</h4>
+          <h1 style={lightModeStyleHeader} className="user-name">
+            {login}
+          </h1>
+          <h4
+            style={{ color: isDark ? "#FFFFFF" : "#4B6A9B" }}
+            className="joined-date"
+          >{`Joined ${date}`}</h4>
         </div>
       </div>
-      <h3 className="bio">{bio === null ? "No bio to display" : bio}</h3>
-      <div className="stats">
+      <h3 style={{ color: isDark ? "#FFFFFF" : "#4B6A9B" }} className="bio">
+        {bio === null ? "No bio to display" : bio}
+      </h3>
+      <div
+        style={{ backgroundColor: isDark ? "#141D2F" : " #F2F2F2" }}
+        className="stats"
+      >
         <div className="stat">
-          <h4>Repos</h4>
-          <span>{repos}</span>
+          <h4 style={{ color: isDark ? "#FFFFFF" : "#4B6A9B" }}>Repos</h4>
+          <span style={{ color: isDark ? "#FFFFFF" : "#2B3442" }}>{repos}</span>
         </div>
         <div className="stat">
-          <h4>Followers</h4>
-          <span>{followers}</span>
+          <h4 style={{ color: isDark ? "#FFFFFF" : "#4B6A9B" }}>Followers</h4>
+          <span style={{ color: isDark ? "#FFFFFF" : "#2B3442" }}>
+            {followers}
+          </span>
         </div>
         <div className="stat">
-          <h4>Following</h4>
-          <span>{following}</span>
+          <h4 style={{ color: isDark ? "#FFFFFF" : "#4B6A9B" }}>Following</h4>
+          <span style={{ color: isDark ? "#FFFFFF" : "#2B3442" }}>
+            {following}
+          </span>
         </div>
       </div>
-      <div className="link-grid">
+      <div
+        style={{ color: isDark ? "#FFFFFF" : "#4B6A9B" }}
+        className="link-grid"
+      >
         <div className="item">
           <img src={locationIcon} />
           <h4>{location === null ? "Not Available" : location}</h4>
@@ -57,7 +83,9 @@ export default function UserInfo({
         </div>
         <div className="item">
           <img src={websiteLink} />
-          <a href={url}>{url}</a>
+          <a style={{ color: isDark ? "#FFFFFF" : "#4B6A9B" }} href={url}>
+            {url}
+          </a>
         </div>
         <div className="item">
           <img src={twitterIcon} />

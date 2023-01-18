@@ -37,10 +37,6 @@ export default function App() {
       });
   }, [submitted]);
 
-  console.log(user);
-  console.log(data);
-  console.log(error);
-
   // Set user on every input change
   function handleChange(e) {
     setUser(e.target.value);
@@ -55,7 +51,12 @@ export default function App() {
   function handleDark() {
     setIsDark((prev) => !prev);
   }
-  console.log(isDark);
+
+  //  Set color to body when isDark is true
+  isDark
+    ? (document.body.style.backgroundColor = "#141D2F")
+    : (document.body.style.backgroundColor = " #F6F8FF");
+
   return (
     <div className="main-container">
       <Header isDark={isDark} setDarkMode={handleDark} />
@@ -64,6 +65,7 @@ export default function App() {
         change={handleChange}
         submit={handleSubmit}
         error={error}
+        isDark={isDark}
       />
       <UserInfo
         login={data.login}
@@ -77,6 +79,7 @@ export default function App() {
         imgUrl={data.avatar_url}
         company={data.company}
         twitter={data.twitter_username}
+        isDark={isDark}
       />
     </div>
   );
